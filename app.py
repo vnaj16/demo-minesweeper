@@ -1,5 +1,6 @@
 from tkinter import *
 import settings
+import utils
 
 root = Tk()
 # Override the settings of the window
@@ -10,19 +11,29 @@ root.resizable(False, False)
 
 top_frame = Frame(
     root,
-    bg="red", #change to black
+    bg="black", #change to black
     width=settings.WIDTH,
-    height=settings.TOP_FRAME_HEIGHT
+    height= utils.height_prct(25)
 )
 top_frame.place(x=0,y=0)
 
 left_frame = Frame(
-    bg="blue",
-    width=settings.LEFT_FRAME_WIDTH,
-    height=settings.HEIGHT - settings.TOP_FRAME_HEIGHT
+    root,
+    bg="black",
+    width=utils.width_prct(25),
+    height=utils.height_prct(75)
 )
-left_frame.place(x=0, y=settings.TOP_FRAME_HEIGHT)
+left_frame.place(x=0, y=utils.height_prct(25))
 
-
+center_frame = Frame(
+    root,
+    bg='black',
+    width=utils.width_prct(75),
+    height=utils.height_prct(75)
+)
+center_frame.place(
+    x=utils.width_prct(25), 
+    y=utils.height_prct(25)
+)
 # Run the window
 root.mainloop()
